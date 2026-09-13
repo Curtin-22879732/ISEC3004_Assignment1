@@ -1,11 +1,11 @@
-package redos.vulnerable;
+package redos.secure;
 
 import java.io.IOException;
 import java.util.logging.*;
 import java.util.regex.*;
 
-public class Program {
-	private static Logger logger = Logger.getLogger(Program.class.getName());
+public class Program3 {
+	private static Logger logger = Logger.getLogger(Program3.class.getName());
 	
 	public static void main(String[] args) {
 		FileHandler handler = null;
@@ -17,14 +17,10 @@ public class Program {
 			if (args.length != 1)
 				System.out.println("Usage: Program <email>");
 			else {
-				/*	Regex Explanation
-				 *	^[a-zA-Z0-9] -> starts with a alphanumeric character
-				 *	(\.?[a-zA-Z0-9]+)* -> follows by any number of groups of: an optional dot and at least one alphanumeric characters
-				 *		problem: overlapping, nested quantifier, which leads to an exponential number of backtracking combinations
-				 *	@curtin\.edu\.au$ -> ends with '@curtin.edu.au'
-				 *	e.g. a@curtin.edu.au, ab.cd@curtin.edu.au, ab.cd.ef@curtin.edu.au
+				/*	Mitigation Technique
+				 *	using possessive quantifier to avoid backtracking
 				*/
-				String regex = "^[a-zA-Z0-9](\\.?[a-zA-Z0-9]+)*@curtin\\.edu\\.au$";
+				String regex = "^[a-zA-Z0-9](\\.?[a-zA-Z0-9]+)*+@curtin\\.edu\\.au$";
 				Pattern pattern = Pattern.compile(regex);
 				Matcher matcher = pattern.matcher(args[0]);
 				
