@@ -17,25 +17,26 @@ public class Program {
 			if (args.length != 1)
 				System.out.println("Usage: Program <email>");
 			else {
-				/*	Regex Explanation
+				/*	Vulnerability Explanation
 				 *	^[a-zA-Z0-9] -> starts with a alphanumeric character
 				 *	(\.?[a-zA-Z0-9]+)* -> follows by any number of groups of: an optional dot and at least one alphanumeric characters
-				 *		problem: overlapping, nested quantifier, which leads to an exponential number of backtracking combinations
+				 *		using overlapping, nested quantifier, which leads to an exponential number of backtracking combinations
 				 *	@curtin\.edu\.au$ -> ends with '@curtin.edu.au'
 				 *	e.g. a@curtin.edu.au, ab.cd@curtin.edu.au, ab.cd.ef@curtin.edu.au
 				*/
 				String regex = "^[a-zA-Z0-9](\\.?[a-zA-Z0-9]+)*@curtin\\.edu\\.au$";
 				Pattern pattern = Pattern.compile(regex);
 				Matcher matcher = pattern.matcher(args[0]);
+				logger.info("Matching " + args[0].length() + " characters");
 				
 				long start = System.nanoTime();
 				boolean result = matcher.matches();
 				long end = System.nanoTime();
 				long time = (end - start) / 1000000;
 				
-				String out = String.format("Result: %b; Time: %dms", result, time);
-				System.out.println(out);
-				logger.info(out);
+				System.out.println("Result: " + result);
+				System.out.println("Time: " + time + "ms");
+				logger.info("Computed " + result + " in " + time + "ms");
 			}
 		}
 		catch (IOException e) {

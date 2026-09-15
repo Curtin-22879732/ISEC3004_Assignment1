@@ -23,15 +23,16 @@ public class Program1 {
 				String regex = "^[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)*@curtin\\.edu\\.au$";
 				Pattern pattern = Pattern.compile(regex);
 				Matcher matcher = pattern.matcher(args[0]);
+				logger.info("Matching " + args[0].length() + " characters");
 				
 				long start = System.nanoTime();
 				boolean result = matcher.matches();
 				long end = System.nanoTime();
 				long time = (end - start) / 1000000;
 				
-				String out = String.format("Result: %b; Time: %dms", result, time);
-				System.out.println(out);
-				logger.info(out);
+				System.out.println("Result: " + result);
+				System.out.println("Time: " + time + "ms");
+				logger.info("Computed " + result + " in " + time + "ms");
 			}
 		}
 		catch (IOException e) {
