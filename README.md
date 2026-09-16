@@ -1,6 +1,6 @@
 # ISEC3004_Assignment1
 This folder contains the programs, source code, and exploitation payloads created for ISEC3004 Assignment1.
-The selected topics are Path Traversal and Regular Expression Denial of Service (ReDos).
+The selected topics are Path Traversal and Regular Expression Denial of Service (ReDoS).
 Please note that the programs are dedicated to **JRE 11+** in a **Linux** environment.
 
 > For more information
