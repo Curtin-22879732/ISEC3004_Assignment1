@@ -18,12 +18,12 @@ GitHub Project: https://github.com/Curtin-22879732/ISEC3004_Assignment1
 * path.secure.Program1
 * path.secure.Program2
 #### Payloads
-* path_good.txt
-* path_bad.txt
+* input/path_good.txt
+* input/path_bad.txt
 #### Instructions
 1. `cd ISEC3004_Assignment1`
 2. `javac -d bin src/path/vulnerable/* src/path/secure/*`
-3. `java -cp bin <program> $(cat input/path.txt)`
+3. `java -cp bin <program> $(cat <payload>)`
 
 ### Regular Expression Denial of Service (ReDoS)
 #### Programs
@@ -35,10 +35,10 @@ GitHub Project: https://github.com/Curtin-22879732/ISEC3004_Assignment1
 * redos.secure.Program5
   * lib: com.google.re2j
 #### Payloads
-* redos_good.txt
-* redos_bad.txt
+* input/redos_good.txt
+* input/redos_bad.txt
 #### Instructions
 1. `cd ISEC3004_Assignment1`
 2. `javac -d bin -cp lib/* src/redos/vulnerable/* src/redos/secure/*`
-3. `java -cp "bin:lib/*" <program> $(cat input/redos.txt)`
+3. `java -cp "bin:lib/*" <program> $(cat <payload>)`
 
