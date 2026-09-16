@@ -17,13 +17,14 @@ public class Program {
 			if (args.length != 1)
 				System.out.println("Usage: Program <path>");
 			else {
-				/*	Vulnerability Explanation
-				 *	directly using unsanitised user input as the path
+				/* Vulnerability Explanation
+				 * directly using unsanitised user input as the path
 				*/
 				String path = args[0];
 				File file = new File(BASE_PATH, path);
 				logger.info("Accessing " + file.getAbsolutePath());
 				
+				// read every line in the file
 				try (BufferedReader reader = new BufferedReader(new FileReader(file))) {	
 					String line = reader.readLine();
 					while(line != null) {

@@ -15,15 +15,21 @@ public class Program1 {
 			logger.addHandler(handler);
 			
 			if (args.length != 1)
-				System.out.println("Usage: Program <path>");
+				System.out.println("Usage: Program1 <path>");
 			else {
-				/*	Mitigation Technique
-				 *	using canonicalised path
+				/* Mitigation Technique
+				 * using canonicalised path
 				*/
 				String path = args[0];
 				File file = new File(BASE_PATH, path);
 				logger.info("Accessing " + file.getAbsolutePath());
 				
+				/* File.getCanonicalPath()
+				 * > converts relative path to absolute path
+				 * > resolves symlink
+				 * > removes redundancy
+				 */
+				// check if the canonicalised path starts with the canonicalised base path
 				if (!file.getCanonicalPath().startsWith(new File(BASE_PATH).getCanonicalPath() + File.separator)) {
 					System.out.println("Path is illegal");
 					logger.warning("Detected path traversal");

@@ -15,14 +15,14 @@ public class Program4 {
 			logger.addHandler(handler);
 			
 			if (args.length != 1)
-				System.out.println("Usage: Program <email>");
+				System.out.println("Usage: Program4 <email>");
 			else if (args[0].length() > 100) {
 				System.out.println("Argument must be less than 100 characters");
 				logger.warning("Argument too long");
 			}
 			else {
-				/*	Mitigation Technique
-				 *	enforcing length constraint to prevent malicious input
+				/* Mitigation Technique
+				 * enforcing length constraint to prevent malicious input
 				*/
 				String regex = "^[a-zA-Z0-9](\\.?[a-zA-Z0-9]+)*@curtin\\.edu\\.au$";
 				Pattern pattern = Pattern.compile(regex);

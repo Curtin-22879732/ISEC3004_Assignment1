@@ -15,10 +15,13 @@ public class Program3 {
 			logger.addHandler(handler);
 			
 			if (args.length != 1)
-				System.out.println("Usage: Program <email>");
+				System.out.println("Usage: Program3 <email>");
 			else {
-				/*	Mitigation Technique
-				 *	using possessive quantifier to avoid backtracking
+				/* Mitigation Technique
+				 * using possessive quantifier to avoid backtracking
+				 * 1. starts with an alphanumeric character
+				 * 2. follows by any groups of: an optional dot + some alphanumeric characters (anti-backtracking)
+				 * 3. ends with @curtin.edu.au
 				*/
 				String regex = "^[a-zA-Z0-9](\\.?[a-zA-Z0-9]+)*+@curtin\\.edu\\.au$";
 				Pattern pattern = Pattern.compile(regex);

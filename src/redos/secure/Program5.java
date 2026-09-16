@@ -1,11 +1,11 @@
 package redos.secure;
 
+import com.google.re2j.*;
 import java.io.IOException;
 import java.util.logging.*;
-import java.util.regex.*;
 
-public class Program2 {
-	private static Logger logger = Logger.getLogger(Program2.class.getName());
+public class Program5 {
+	private static Logger logger = Logger.getLogger(Program5.class.getName());
 	
 	public static void main(String[] args) {
 		FileHandler handler = null;
@@ -15,16 +15,12 @@ public class Program2 {
 			logger.addHandler(handler);
 			
 			if (args.length != 1)
-				System.out.println("Usage: Program2 <email>");
+				System.out.println("Usage: Program5 <email>");
 			else {
 				/* Mitigation Technique
-				 * avoid using nested quantifier
-				 * 1. starts with some alphanumeric characters
-				 * 2. follows by one optional group of: a dot + some alphanumeric characters
-				 * 3. ends with @curtin.edu.au
-				 * note: multi-dot emails no longer valid
+				 * using secure library (com.google.re2j)
 				*/
-				String regex = "^[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)?@curtin\\.edu\\.au$";
+				String regex = "^[a-zA-Z0-9](\\.?[a-zA-Z0-9]+)*@curtin\\.edu\\.au$";
 				Pattern pattern = Pattern.compile(regex);
 				Matcher matcher = pattern.matcher(args[0]);
 				logger.info("Matching " + args[0].length() + " characters");

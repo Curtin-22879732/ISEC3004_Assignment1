@@ -15,10 +15,13 @@ public class Program1 {
 			logger.addHandler(handler);
 			
 			if (args.length != 1)
-				System.out.println("Usage: Program <email>");
+				System.out.println("Usage: Program1 <email>");
 			else {
-				/*	Mitigation Technique
-				 *	still using nested quantifier, but no longer overlapping as each group must start with a dot
+				/* Mitigation Technique
+				 * still using nested quantifier, but no longer overlapping as each group must start with a dot
+				 * 1. starts with some alphanumeric characters
+				 * 2. follows by any groups of: a dot + some alphanumeric characters
+				 * 3. ends with @curtin.edu.au
 				*/
 				String regex = "^[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)*@curtin\\.edu\\.au$";
 				Pattern pattern = Pattern.compile(regex);
