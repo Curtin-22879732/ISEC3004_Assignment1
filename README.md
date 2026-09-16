@@ -2,7 +2,6 @@
 This folder contains the programs, source code, and exploitation payloads created for ISEC3004 Assignment1.
 The selected topics are Path Traversal and Regular Expression Denial of Service (ReDos).
 Please note that the programs are dedicated to **JRE 11+** in a **Linux** environment.
-Please **DO NOT REMOVE** the log folder.
 
 > For more information
 >> See **src** folder for the source code.<br>
@@ -30,6 +29,8 @@ GitHub Project: https://github.com/Curtin-22879732/ISEC3004_Assignment1
 * redos.secure.Program2
 * redos.secure.Program3
 * redos.secure.Program4
+* redos.secure.Program5
+  * lib: com.google.re2j
 #### Instructions
 1. `cd ISEC3004_Assignment1`
 2. `javac -d bin -cp lib/* src/redos/vulnerable/* src/redos/secure/*`
