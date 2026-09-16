@@ -17,6 +17,9 @@ GitHub Project: https://github.com/Curtin-22879732/ISEC3004_Assignment1
 * path.vulnerable.Program
 * path.secure.Program1
 * path.secure.Program2
+#### Payloads
+* path_good.txt
+* path_bad.txt
 #### Instructions
 1. `cd ISEC3004_Assignment1`
 2. `javac -d bin src/path/vulnerable/* src/path/secure/*`
@@ -31,6 +34,9 @@ GitHub Project: https://github.com/Curtin-22879732/ISEC3004_Assignment1
 * redos.secure.Program4
 * redos.secure.Program5
   * lib: com.google.re2j
+#### Payloads
+* redos_good.txt
+* redos_bad.txt
 #### Instructions
 1. `cd ISEC3004_Assignment1`
 2. `javac -d bin -cp lib/* src/redos/vulnerable/* src/redos/secure/*`
